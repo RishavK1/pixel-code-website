@@ -6,7 +6,7 @@ export const blogsData = [
     title: "How to Launch Your Website in 7 Days",
     excerpt: "Discover our proven 7-day framework to take your website from concept to launch - without the usual 2-3 month wait.",
     category: "Guide",
-    author: "Rishav Kamboj",
+    author: "R K",
     publishDate: "2025-10-15",
     readTime: "8 min read",
     image: "/blog/launch-7-days.jpg",
