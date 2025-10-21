@@ -242,7 +242,13 @@ Message: ${formData.message}`;
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             
             <div className="md:col-span-1">
-              <h3 className="text-2xl font-bold mb-3">PixelorCode</h3>
+              <div className="h-10 md:h-14 flex items-center justify-start mb-3">
+                <img 
+                  src="/nav-main.png" 
+                  alt="PixelOrCode Logo" 
+                  className="h-full w-auto object-contain rounded-xl"
+                />
+              </div>
               <p className="text-slate-400 text-sm mb-4">
                 Crafting fast, scalable, and beautiful websites that drive business growth.
               </p>

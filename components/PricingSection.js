@@ -217,7 +217,7 @@ export default function PricingSection() {
         </div>
 
         {/* Launch Special Banner */}
-        <div className="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border-2 border-emerald-500/30 rounded-2xl p-6 mb-12 text-center">
+        {/* <div className="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border-2 border-emerald-500/30 rounded-2xl p-6 mb-12 text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
             <span className="text-2xl">🎉</span>
             <h3 className="text-xl font-bold">LAUNCH SPECIAL</h3>
@@ -228,7 +228,7 @@ export default function PricingSection() {
             <span>•</span>
             <span>📍 Spots remaining: 3/5</span>
           </div>
-        </div>
+        </div> */}
 
         {/* Custom Quote Section */}
         <div className="text-center bg-slate-800 border-2 border-slate-700 rounded-2xl p-8 lg:p-12">

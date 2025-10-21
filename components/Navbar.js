@@ -41,12 +41,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Code2 className="w-6 h-6 text-slate-950" />
+            <div className="h-12 md:h-16 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <img 
+                src="/nav-main.png" 
+                alt="PixelOrCode Logo" 
+                className="h-full w-auto object-contain"
+              />
             </div>
-            <span className="text-xl font-bold text-white">
-              Pixel<span className="text-emerald-400">Or</span>Code
-            </span>
           </a>
 
           {/* Desktop Navigation */}
