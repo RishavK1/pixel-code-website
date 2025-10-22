@@ -12,8 +12,8 @@ const comparisonData = [
   },
   {
     feature: 'Starting Price',
-    pixelorcode: '₹25,000',
-    traditional: '₹60,000+',
+    pixelorcode: '$300',
+    traditional: '$725+',
     highlight: true,
   },
   {
