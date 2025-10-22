@@ -11,9 +11,21 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    
+    // Prevent body scroll when menu is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      // Clean up overflow style on unmount
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { name: 'Home', href: '/#home' },
@@ -94,58 +106,69 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div 
+          className="lg:hidden fixed inset-0 top-20 bg-black/70 backdrop-blur-sm z-40"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu Slide-in Panel */}
       <div
-        className={`lg:hidden fixed inset-0 top-20 bg-slate-950/98 backdrop-blur-lg transition-all duration-300 ${
-          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`lg:hidden fixed top-20 right-0 h-[calc(100vh-5rem)] w-4/5 max-w-sm z-50 transition-all duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex flex-col h-full px-6 py-8">
-          {/* Mobile Navigation Links */}
-          <div className="flex flex-col gap-2 mb-8">
-            {navLinks.map((link, index) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={handleLinkClick}
-                className="text-slate-300 hover:text-emerald-400 hover:bg-slate-900/50 font-medium py-4 px-4 rounded-lg transition-all border-b border-slate-800"
-                style={{
-                  animation: isOpen ? `slideIn 0.3s ease-out ${index * 0.05}s both` : 'none',
-                }}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
+        <div className="h-full bg-slate-900 border-l-2 border-emerald-500/30 shadow-2xl">
+          {/* Make this container scrollable */}
+          <div className="flex flex-col h-full p-6 overflow-y-auto">
+            {/* Mobile Navigation Links */}
+            <div className="flex flex-col gap-3 mb-8">
+              {navLinks.map((link, index) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={handleLinkClick}
+                  className="text-slate-300 hover:text-emerald-400 font-medium py-4 px-6 rounded-lg transition-all border border-slate-700 hover:border-emerald-500/50 hover:bg-slate-800/50"
+                  style={{
+                    animation: isOpen ? `slideInRight 0.3s ease-out ${index * 0.05}s both` : 'none',
+                  }}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
 
-          {/* Mobile CTA Buttons */}
-          <div className="space-y-4 mt-auto pb-8">
-            <a
-              href="tel:+919416444778"
-              onClick={handleLinkClick}
-              className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 px-6 rounded-lg border border-slate-700 transition-all"
-            >
-              <Phone className="w-5 h-5" />
-              Call: +91 94164 44778
-            </a>
-            <a
-              href="https://wa.me/917404511743?text=Hi%20PixelorCode!%20I'd%20like%20to%20discuss%20a%20project."
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleLinkClick}
-              className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-4 px-6 rounded-lg transition-all"
-            >
-              Get Started
-            </a>
+            {/* Mobile CTA Buttons */}
+            <div className="space-y-4 mt-auto pb-8">
+              <a
+                href="tel:+919416444778"
+                onClick={handleLinkClick}
+                className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 px-6 rounded-lg border border-slate-700 transition-all hover:border-emerald-500/50"
+              >
+                <Phone className="w-5 h-5" />
+                Call: +91 94164 44778
+              </a>
+              <a
+                href="https://wa.me/917404511743?text=Hi%20PixelorCode!%20I'd%20like%20to%20discuss%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLinkClick}
+                className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-4 px-6 rounded-lg transition-all"
+              >
+                Get Started
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes slideIn {
+        @keyframes slideInRight {
           from {
             opacity: 0;
-            transform: translateX(-20px);
+            transform: translateX(30px);
           }
           to {
             opacity: 1;
