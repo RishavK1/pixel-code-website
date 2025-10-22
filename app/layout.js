@@ -10,7 +10,7 @@ export const metadata = {
   
   keywords: 'web development karnal, website design karnal, react developer karnal, nextjs developer india, website development haryana, MERN stack developer, professional website design, fast website development, startup website, business website india, affordable web development, modern web agency, SaaS development, ecommerce website karnal',
   
-  authors: [{ name: 'Rishav Kamboj', url: 'https://pixelorcode.com' }],
+  authors: [{ name: 'Rishav Kamboj, Vansh Kalra', url: 'https://pixelorcode.com' }],
   creator: 'PixelorCode',
   publisher: 'PixelorCode',
 
@@ -23,9 +23,9 @@ export const metadata = {
     description: 'Professional web development agency in Karnal. Modern websites using React, Next.js, MERN stack. Starting $299. Fast delivery in 7-14 days.',
     images: [
       {
-        url: 'https://pixelorcode.com/og-image.png',
-        width: 1200,
-        height: 630,
+        url: 'https://pixelorcode.com/logo.png',
+        width: 1024,
+        height: 796,
         alt: 'PixelorCode - Web Development Agency Karnal',
       }
     ],
@@ -37,7 +37,7 @@ export const metadata = {
     creator: '@pixelorcode',
     title: 'PixelorCode - Professional Web Development',
     description: 'Launch your website in 7-14 days. Modern tech, affordable pricing, fast delivery.',
-    images: ['https://pixelorcode.com/twitter-image.png'],
+    images: ['https://pixelorcode.com/logo.png'],
   },
 
   robots: {

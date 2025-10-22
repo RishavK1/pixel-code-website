@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import { ChevronDown, MessageCircle, ChevronUp } from 'lucide-react';
 
 const faqs = [
   {
@@ -56,10 +56,14 @@ const faqs = [
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  // Show only first 4 FAQs initially, or all if showAll is true
+  const visibleFaqs = showAll ? faqs : faqs.slice(0, 4);
 
   return (
     <div className="bg-slate-900 text-white py-24">
@@ -76,7 +80,7 @@ export default function FAQSection() {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {visibleFaqs.map((faq, index) => (
             <div 
               key={index}
               className="bg-slate-950 border-2 border-slate-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-emerald-500/50"
@@ -109,6 +113,31 @@ export default function FAQSection() {
             </div>
           ))}
         </div>
+
+        {/* Show More/Less Button */}
+        {!showAll && (
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium"
+            >
+              Show all {faqs.length} questions
+              <ChevronDown className="w-5 h-5" />
+            </button>
+          </div>
+        )}
+
+        {showAll && (
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setShowAll(false)}
+              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium"
+            >
+              Show less
+              <ChevronUp className="w-5 h-5" />
+            </button>
+          </div>
+        )}
 
         <div className="mt-16 text-center bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/20 rounded-2xl p-8">
           <h3 className="text-2xl font-bold mb-4">Still have questions?</h3>

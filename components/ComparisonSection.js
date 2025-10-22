@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Check, X, Zap, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Check, X, Zap, ArrowRight, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const comparisonData = [
   {
@@ -12,8 +12,8 @@ const comparisonData = [
   },
   {
     feature: 'Starting Price',
-    pixelorcode: '₹25,000',
-    traditional: '₹60,000+',
+    pixelorcode: '$300',
+    traditional: '$725+',
     highlight: true,
   },
   {
@@ -72,6 +72,9 @@ const comparisonData = [
 ];
 
 export default function ComparisonSection() {
+  const [mobileView, setMobileView] = useState('carousel'); // 'carousel' or 'summary'
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const renderValue = (value, isPixelorcode, reverse = false) => {
     if (typeof value === 'boolean') {
       const shouldShow = reverse ? !value : value;
@@ -95,6 +98,16 @@ export default function ComparisonSection() {
       </span>
     );
   };
+
+  const nextFeature = () => {
+    setCurrentIndex((prev) => (prev < comparisonData.length - 1 ? prev + 1 : 0));
+  };
+
+  const prevFeature = () => {
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : comparisonData.length - 1));
+  };
+
+  const highlightFeatures = comparisonData.filter(item => item.highlight);
 
   return (
     <div className="bg-slate-950 text-white py-24">
@@ -163,43 +176,140 @@ export default function ComparisonSection() {
         </div>
 
         {/* Comparison Cards - Mobile */}
-        <div className="lg:hidden space-y-6">
-          {comparisonData.map((item, index) => (
-            <div
-              key={index}
-              className={`bg-slate-900 border-2 rounded-2xl overflow-hidden ${
-                item.highlight ? 'border-emerald-500/50' : 'border-slate-800'
-              }`}
-            >
-              <div className="p-6">
-                <h3 className="font-bold text-lg mb-1">{item.feature}</h3>
-                {item.description && (
-                  <p className="text-sm text-slate-500 mb-4">{item.description}</p>
-                )}
+        <div className="lg:hidden">
+          {/* Mobile View Toggle */}
+          <div className="flex justify-center mb-6">
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-1 flex">
+              <button
+                onClick={() => setMobileView('carousel')}
+                className={`px-4 py-2 text-sm rounded-lg transition-all ${
+                  mobileView === 'carousel'
+                    ? 'bg-emerald-500 text-slate-950 font-medium'
+                    : 'text-slate-400'
+                }`}
+              >
+                Detailed View
+              </button>
+              <button
+                onClick={() => setMobileView('summary')}
+                className={`px-4 py-2 text-sm rounded-lg transition-all ${
+                  mobileView === 'summary'
+                    ? 'bg-emerald-500 text-slate-950 font-medium'
+                    : 'text-slate-400'
+                }`}
+              >
+                Quick Summary
+              </button>
+            </div>
+          </div>
 
-                <div className="grid grid-cols-2 gap-4 mt-4">
-                  {/* PixelorCode */}
-                  <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4">
-                    <div className="text-xs text-emerald-400 font-semibold mb-2 flex items-center gap-1">
-                      <Zap className="w-3 h-3" />
-                      PixelorCode
+          {/* Summary View - Original Box Design */}
+          {mobileView === 'summary' && (
+            <div className="space-y-4">
+              {highlightFeatures.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-slate-900 border-2 border-emerald-500/50 rounded-2xl p-5"
+                >
+                  <h3 className="font-bold text-lg mb-3">{item.feature}</h3>
+                  <div className="flex justify-between items-center">
+                    <div className="text-center">
+                      <div className="text-xs text-emerald-400 font-semibold mb-1">PixelorCode</div>
+                      <div className="font-semibold text-emerald-400">{item.pixelorcode}</div>
                     </div>
-                    <div className="flex items-center justify-center">
-                      {renderValue(item.pixelorcode, true, item.reverse)}
+                    <div className="text-slate-500 mx-2">VS</div>
+                    <div className="text-center">
+                      <div className="text-xs text-slate-400 font-semibold mb-1">Traditional</div>
+                      <div className="font-semibold text-slate-400">{item.traditional}</div>
                     </div>
                   </div>
+                </div>
+              ))}
+            </div>
+          )}
 
-                  {/* Traditional */}
-                  <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                    <div className="text-xs text-slate-400 font-semibold mb-2">Traditional</div>
-                    <div className="flex items-center justify-center">
-                      {renderValue(item.traditional, false, item.reverse)}
+          {/* Carousel View */}
+          {mobileView === 'carousel' && (
+            <div className="space-y-6">
+              {/* Progress Indicator */}
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-slate-500">
+                  {currentIndex + 1} of {comparisonData.length}
+                </span>
+                <div className="flex gap-1">
+                  {comparisonData.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full ${
+                        index === currentIndex ? 'bg-emerald-500' : 'bg-slate-700'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Current Feature Card */}
+              <div className="bg-slate-900 border-2 rounded-2xl overflow-hidden border-emerald-500/50">
+                <div className="p-5">
+                  <h3 className="font-bold text-lg mb-1">
+                    {comparisonData[currentIndex].feature}
+                  </h3>
+                  {comparisonData[currentIndex].description && (
+                    <p className="text-sm text-slate-500 mb-4">
+                      {comparisonData[currentIndex].description}
+                    </p>
+                  )}
+
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* PixelorCode */}
+                    <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4">
+                      <div className="text-xs text-emerald-400 font-semibold mb-2 flex items-center gap-1">
+                        <Zap className="w-3 h-3" />
+                        PixelorCode
+                      </div>
+                      <div className="flex items-center justify-center">
+                        {renderValue(
+                          comparisonData[currentIndex].pixelorcode,
+                          true,
+                          comparisonData[currentIndex].reverse
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Traditional */}
+                    <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                      <div className="text-xs text-slate-400 font-semibold mb-2">Traditional</div>
+                      <div className="flex items-center justify-center">
+                        {renderValue(
+                          comparisonData[currentIndex].traditional,
+                          false,
+                          comparisonData[currentIndex].reverse
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* Navigation */}
+              <div className="flex justify-between">
+                <button
+                  onClick={prevFeature}
+                  className="flex items-center gap-2 px-4 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                  <span className="text-sm">Previous</span>
+                </button>
+                <button
+                  onClick={nextFeature}
+                  className="flex items-center gap-2 px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 rounded-xl transition-colors"
+                >
+                  <span className="text-sm">Next</span>
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
             </div>
-          ))}
+          )}
         </div>
 
         {/* Bottom Stats */}
