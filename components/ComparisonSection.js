@@ -203,7 +203,7 @@ export default function ComparisonSection() {
             </div>
           </div>
 
-          {/* Summary View */}
+          {/* Summary View - Original Box Design */}
           {mobileView === 'summary' && (
             <div className="space-y-4">
               {highlightFeatures.map((item, index) => (
@@ -225,22 +225,6 @@ export default function ComparisonSection() {
                   </div>
                 </div>
               ))}
-
-              {/* Summary Stats */}
-              <div className="grid grid-cols-3 gap-3 mt-6">
-                <div className="bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-emerald-400 mb-1">5x</div>
-                  <p className="text-xs text-slate-300">Faster</p>
-                </div>
-                <div className="bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-emerald-400 mb-1">60%</div>
-                  <p className="text-xs text-slate-300">Lower Cost</p>
-                </div>
-                <div className="bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-emerald-400 mb-1">100%</div>
-                  <p className="text-xs text-slate-300">Satisfaction</p>
-                </div>
-              </div>
             </div>
           )}
 
