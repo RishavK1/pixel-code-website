@@ -2,51 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pixelorcode.com</loc>
-    <lastmod>2025-10-20T11:40:35.409Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.974Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/#services</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/#portfolio</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/#pricing</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/#testimonials</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/#blog</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/#contact</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/blog</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pixelorcode.com/audit</loc>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pixelorcode.com/free-audit</loc>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/blog/launch-website-in-7-days</loc>
@@ -80,37 +92,37 @@
   </url>
   <url>
     <loc>https://pixelorcode.com/case-studies/perpetual-power-services</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/case-studies/rudra-infocom</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/case-studies/ruvira-atelier</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/case-studies/meena-play-world</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/case-studies/tomato-food-ordering</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pixelorcode.com/case-studies/car-rental-platform</loc>
-    <lastmod>2025-10-20T11:40:35.410Z</lastmod>
+    <lastmod>2025-10-23T07:07:41.975Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

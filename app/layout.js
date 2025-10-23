@@ -5,20 +5,34 @@ import GoogleAnalytics from './components/GoogleAnalytics'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'PixelorCode - Professional Web Development in Karnal | React & Next.js Agency',
+  title: {
+    default: 'PixelorCode - Professional Web Development in Karnal | React & Next.js Agency',
+    template: '%s | PixelorCode - Web Development Experts'
+  },
   description: 'Launch your website in 7-14 days with PixelorCode. Leading web development agency in Karnal specializing in React, Next.js, MERN stack. Modern websites starting $299. Fast delivery, affordable pricing.',
   
-  keywords: 'web development karnal, website design karnal, react developer karnal, nextjs developer india, website development haryana, MERN stack developer, professional website design, fast website development, startup website, business website india, affordable web development, modern web agency, SaaS development, ecommerce website karnal',
+  keywords: 'web development karnal, website design karnal, react developer karnal, nextjs developer india, website development haryana, MERN stack developer, professional website design, fast website development, startup website, business website india, affordable web development, modern web agency, SaaS development, ecommerce website karnal, custom web development, web app development, website redesign services',
   
   authors: [{ name: 'Rishav Kamboj, Vansh Kalra', url: 'https://pixelorcode.com' }],
   creator: 'PixelorCode',
   publisher: 'PixelorCode',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://pixelorcode.com',
-    siteName: 'PixelorCode',
+    siteName: 'PixelorCode - Professional Web Development Agency',
     title: 'PixelorCode - Launch Your Website in Days, Not Months',
     description: 'Professional web development agency in Karnal. Modern websites using React, Next.js, MERN stack. Starting $299. Fast delivery in 7-14 days.',
     images: [
@@ -40,18 +54,6 @@ export const metadata = {
     images: ['https://pixelorcode.com/logo.png'],
   },
 
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-
   alternates: {
     canonical: 'https://pixelorcode.com',
   },
@@ -69,6 +71,20 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        
+        {/* Google Site Verification */}
+        <meta name="google-site-verification" content="A-K_-AUwfY2sYUMOxsP0EzrSaNXQhb0rqRsEngB1_qI" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#10b981" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="PixelorCode" />
+        <meta name="application-name" content="PixelorCode" />
+        
+        {/* Prefetch key resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Structured Data for SEO */}
         <script

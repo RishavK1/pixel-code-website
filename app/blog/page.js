@@ -6,6 +6,18 @@ import { blogsData } from '@/data/blogs';
 export const metadata = {
   title: 'Blog & Resources - PixelorCode',
   description: 'Expert web development insights, guides, and tips. Learn about modern web technologies, pricing, and best practices.',
+  keywords: 'web development blog, React tutorials, Next.js guides, MERN stack, website design tips, SEO optimization, web development resources, coding tutorials, startup website guide',
+  openGraph: {
+    title: 'Blog & Resources - PixelorCode',
+    description: 'Expert web development insights, guides, and tips. Learn about modern web technologies, pricing, and best practices.',
+    type: 'website',
+    siteName: 'PixelorCode',
+  },
+  twitter: {
+    title: 'Blog & Resources - PixelorCode',
+    description: 'Expert web development insights, guides, and tips. Learn about modern web technologies, pricing, and best practices.',
+    card: 'summary_large_image',
+  },
 };
 
 export default function BlogPage() {

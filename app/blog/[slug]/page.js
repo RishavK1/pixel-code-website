@@ -19,12 +19,32 @@ export async function generateMetadata({ params }) {
   if (!blog) {
     return {
       title: 'Blog Not Found - PixelorCode',
+      description: 'The requested blog post could not be found.',
     };
   }
 
+  // Create a more detailed description if excerpt is too short
+  const description = blog.excerpt.length > 100 
+    ? blog.excerpt 
+    : `${blog.excerpt} Learn more about ${blog.title.toLowerCase()} with our expert guide.`;
+
   return {
     title: `${blog.title} - PixelorCode Blog`,
-    description: blog.excerpt,
+    description: description,
+    keywords: `${blog.category}, ${blog.title}, web development, React, Next.js, MERN stack, website design, SEO, ${blog.author}`,
+    openGraph: {
+      title: `${blog.title} - PixelorCode`,
+      description: description,
+      type: 'article',
+      publishedTime: blog.publishDate,
+      authors: [blog.author],
+      tags: [blog.category, 'web development', 'React', 'Next.js'],
+    },
+    twitter: {
+      title: `${blog.title} - PixelorCode`,
+      description: description,
+      card: 'summary_large_image',
+    },
   };
 }
 
@@ -35,10 +55,43 @@ export default function BlogDetailPage({ params }) {
     notFound();
   }
 
+  // Generate structured data for the blog post
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": blog.title,
+    "description": blog.excerpt,
+    "author": {
+      "@type": "Person",
+      "name": blog.author
+    },
+    "datePublished": blog.publishDate,
+    "dateModified": blog.publishDate,
+    "image": "https://pixelorcode.com/logo.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PixelorCode",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pixelorcode.com/logo.png"
+      }
+    },
+    "articleBody": blog.content.intro || "",
+    "keywords": `${blog.category}, web development, React, Next.js, MERN stack, ${blog.author}`
+  };
+
   return (
     <>
       <Navbar />
       <main className="pt-20 bg-slate-950 text-white min-h-screen">
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData)
+          }}
+        />
         
         {/* Hero Section */}
         <div className="bg-gradient-to-b from-slate-900 to-slate-950 py-16">
