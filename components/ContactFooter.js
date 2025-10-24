@@ -307,7 +307,7 @@ Message: ${formData.message}`;
 
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-500 text-sm">
-              © 2024 PixelorCode. All rights reserved.
+              © 2025 PixelorCode. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-slate-500 text-sm">
               <a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>

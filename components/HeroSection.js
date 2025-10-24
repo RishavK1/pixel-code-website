@@ -36,12 +36,10 @@ export default function HeroSection() {
           
           {/* Primary CTA - Free Audit */}
           <a 
-            href="https://wa.me/917404511743?text=Hi%20PixelorCode!%20I'd%20like%20a%20free%20website%20audit."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/audit"
             className="group bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-4 rounded-lg flex items-center gap-3 transition-all duration-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:scale-105 w-full sm:w-auto justify-center"
           >
-            Get Your Free Website Audit
+            Choose Your Website Design
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
 

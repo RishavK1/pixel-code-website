@@ -3,26 +3,26 @@ export const blogsData = [
   {
     id: 1,
     slug: "launch-website-in-7-days",
-    title: "How to Launch Your Website in 7 Days",
-    excerpt: "Discover our proven 7-day framework to take your website from concept to launch - without the usual 2-3 month wait.",
+    title: "How to Launch Your Website in 7 Days - Fast Web Development Process",
+    excerpt: "Discover our proven 7-day framework to take your website from concept to launch - without the usual 2-3 month wait. Fast web development with React, Next.js, and modern technologies.",
     category: "Guide",
-    author: "R K",
+    author: "Author",
     publishDate: "2025-10-15",
     readTime: "8 min read",
     image: "/blog/launch-7-days.jpg",
     featured: true,
     
     content: {
-      intro: "Most agencies take 2-3 months to launch a website. We do it in 7 days. Here's exactly how we make it happen, and how you can apply this framework to your own project.",
+      intro: "Most agencies take 2-3 months to launch a website. We do it in 7 days with our fast web development process. Here's exactly how we make it happen using React, Next.js, and modern web technologies, and how you can apply this framework to your own project.",
       
       sections: [
         {
-          heading: "The Traditional Problem",
-          content: "The typical website development process is broken. Endless meetings, unclear timelines, scope creep, and months of waiting. By the time your site launches, your business has already lost opportunities. There's a better way."
+          heading: "The Traditional Problem with Web Development",
+          content: "The typical website development process is broken. Endless meetings, unclear timelines, scope creep, and months of waiting. By the time your site launches, your business has already lost opportunities. There's a better way with fast web development using modern frameworks like React and Next.js."
         },
         {
-          heading: "Our 7-Day Framework",
-          content: "We've perfected a streamlined process that delivers quality websites in just one week. Here's the day-by-day breakdown:"
+          heading: "Our 7-Day Fast Web Development Framework",
+          content: "We've perfected a streamlined process that delivers quality websites in just one week using cutting-edge web development technologies. Here's the day-by-day breakdown of our fast web development process:"
         }
       ],
       
@@ -68,22 +68,22 @@ export const blogsData = [
   {
     id: 2,
     slug: "website-cost-breakdown",
-    title: "Website Cost Breakdown: What You're Really Paying For",
-    excerpt: "Confused about web development pricing? Here's a transparent breakdown of where your money goes and why quality costs what it does.",
+    title: "Website Cost Breakdown: What You're Really Paying For in Web Development",
+    excerpt: "Confused about web development pricing? Here's a transparent breakdown of where your money goes in website development and why quality costs what it does. Learn about React, Next.js, and MERN stack pricing.",
     category: "Pricing",
-    author: "Rishav Kamboj",
+    author: "Author",
     publishDate: "2025-10-12",
     readTime: "10 min read",
     image: "/blog/cost-breakdown.jpg",
     featured: true,
     
     content: {
-      intro: "\"Why does a website cost ₹15,000 to ₹75,000?\" This is the most common question we get. Let's break down exactly what you're paying for and why investing in quality makes financial sense.",
+      intro: "\"Why does a website cost ₹15,000 to ₹75,000?\" This is the most common question we get about web development pricing. Let's break down exactly what you're paying for in website development and why investing in quality web development with React, Next.js, and MERN stack makes financial sense.",
       
       sections: [
         {
-          heading: "Understanding Website Costs",
-          content: "A website isn't just 'code' - it's strategy, design, development, testing, and ongoing support. Each component requires specialized skills and significant time investment."
+          heading: "Understanding Website Development Costs",
+          content: "A website isn't just 'code' - it's strategy, design, development, testing, and ongoing support. Each component of web development requires specialized skills and significant time investment. Modern web development with React and Next.js offers better value than traditional approaches."
         }
       ],
       
@@ -245,7 +245,7 @@ export const blogsData = [
     title: "5 Signs You Need a Website Redesign",
     excerpt: "Is your website holding your business back? Here are 5 clear indicators it's time for a refresh.",
     category: "Tips",
-    author: "Rishav Kamboj",
+    author: "Author",
     publishDate: "2025-10-10",
     readTime: "6 min read",
     image: "/blog/redesign-signs.jpg",
@@ -373,7 +373,7 @@ export const blogsData = [
     title: "MERN Stack vs WordPress: Which Is Better for Your Website?",
     excerpt: "WordPress or custom development? We break down the pros, cons, and when to choose each platform.",
     category: "Technical",
-    author: "Rishav Kamboj",
+    author: "Author",
     publishDate: "2025-10-08",
     readTime: "12 min read",
     image: "/blog/mern-vs-wordpress.jpg",
@@ -672,7 +672,7 @@ export const blogsData = [
     title: "How to Choose a Web Developer: The Complete Guide",
     excerpt: "Hiring the wrong developer can cost you time, money, and opportunities. Here's how to choose the right one.",
     category: "Guide",
-    author: "Rishav Kamboj",
+    author: "Author",
     publishDate: "2025-10-05",
     readTime: "15 min read",
     image: "/blog/choose-developer.jpg",

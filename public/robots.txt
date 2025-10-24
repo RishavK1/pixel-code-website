@@ -2,5 +2,28 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 
 Sitemap: https://pixelorcode.com/sitemap.xml
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Bing-specific directives
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Crawl-delay for other search engines
+User-agent: *
+Crawl-delay: 10
+
+# Host
+Host: https://pixelorcode.com

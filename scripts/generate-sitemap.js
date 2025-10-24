@@ -17,6 +17,8 @@ const staticPages = [
   { url: '/#blog', priority: 0.8, changefreq: 'weekly' },
   { url: '/#contact', priority: 0.7, changefreq: 'monthly' },
   { url: '/blog', priority: 0.9, changefreq: 'weekly' },
+  { url: '/audit', priority: 0.8, changefreq: 'weekly' },
+  { url: '/free-audit', priority: 0.8, changefreq: 'weekly' },
 ]
 
 // Try to import blog data
@@ -78,8 +80,31 @@ const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 
 Sitemap: ${baseUrl}/sitemap.xml
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Bing-specific directives
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Crawl-delay for other search engines
+User-agent: *
+Crawl-delay: 10
+
+# Host
+Host: https://pixelorcode.com
 `
 
 fs.writeFileSync(path.join(publicDir, 'robots.txt'), robotsTxt)
