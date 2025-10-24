@@ -1,25 +1,26 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import ContactFooter from '@/components/ContactFooter';
-import { X, ExternalLink, ArrowRight, Sparkles, Filter } from 'lucide-react';
+import { X, ExternalLink, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function DesignShowcase() {
   const [selectedDesign, setSelectedDesign] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const carouselRef = useRef(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
 
   const designs = [
     {
       id: 1,
-      title: 'Chemistry Academy',
+      title: 'MathMaster Academy',
       category: 'Education',
       industry: 'Coaching Institute',
-      thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400',
+      thumbnail: '/design/design2.png',
       fullImage: '/design/design2.png',
-      description: 'Modern chemistry learning platform with interactive lessons and student dashboard',
-      features: ['Course Management', 'Student Portal', 'Video Lessons', 'Quiz System'],
-      demoUrl: '#',
+      description: 'Modern mathematics learning platform with interactive lessons, problem-solving tools, and student progress tracking',
+      features: ['Interactive Lessons', 'Problem Solver', 'Progress Tracking', 'Student Dashboard'],
+      demoUrl: 'https://dc-classes.vercel.app/',
       color: 'emerald'
     },
     {
@@ -27,92 +28,38 @@ export default function DesignShowcase() {
       title: 'Restaurant Elegance',
       category: 'Restaurant',
       industry: 'Food & Beverage',
-      thumbnail: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400',
+      thumbnail: '/design/design1.png',
       fullImage: '/design/design1.png',
       description: 'Elegant restaurant website with online menu, reservations, and delivery integration',
       features: ['Online Menu', 'Table Booking', 'Food Delivery', 'Gallery'],
-      demoUrl: '#',
+      demoUrl: 'https://rose-petal-scroll.vercel.app/',
       color: 'orange'
     },
     {
       id: 3,
-      title: 'TechStore E-commerce',
-      category: 'E-commerce',
-      industry: 'Retail',
-      thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400',
+      title: 'ScienceLab Institute',
+      category: 'Education',
+      industry: 'Coaching Institute',
+      thumbnail: '/design/design3.png',
       fullImage: '/design/design3.png',
-      description: 'Full-featured online store with product catalog, cart, and payment gateway',
-      features: ['Product Catalog', 'Shopping Cart', 'Payment Gateway', 'Order Tracking'],
-      demoUrl: '#',
+      description: 'Comprehensive science education platform with virtual labs, experiment simulations, and research tools',
+      features: ['Virtual Labs', 'Experiment Simulator', 'Research Tools', 'Science Library'],
+      demoUrl: 'https://rana-academy.vercel.app/',
       color: 'blue'
     },
     {
       id: 4,
-      title: 'FitLife Gym',
-      category: 'Fitness',
-      industry: 'Health & Wellness',
-      thumbnail: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400',
+      title: 'Language Learning Hub',
+      category: 'Education',
+      industry: 'Language Institute',
+      thumbnail: '/design/design4.png',
       fullImage: '/design/design4.png',
-      description: 'Dynamic fitness center website with class schedules, trainer profiles, and memberships',
-      features: ['Class Schedule', 'Membership Plans', 'Trainer Profiles', 'Online Booking'],
-      demoUrl: '#',
-      color: 'red'
-    },
-    {
-      id: 5,
-      title: 'LawFirm Professional',
-      category: 'Professional',
-      industry: 'Legal Services',
-      thumbnail: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400',
-      fullImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200',
-      description: 'Professional law firm website with case studies, attorney profiles, and consultation booking',
-      features: ['Attorney Profiles', 'Case Studies', 'Consultation Booking', 'Blog'],
-      demoUrl: '#',
-      color: 'slate'
-    },
-    {
-      id: 6,
-      title: 'BeautyGlow Salon',
-      category: 'Beauty',
-      industry: 'Beauty & Wellness',
-      thumbnail: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400',
-      fullImage: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200',
-      description: 'Elegant beauty salon website with service menu, online booking, and gallery',
-      features: ['Service Menu', 'Online Booking', 'Gallery', 'Staff Profiles'],
-      demoUrl: '#',
-      color: 'pink'
-    },
-    {
-      id: 7,
-      title: 'StartupHub SaaS',
-      category: 'SaaS',
-      industry: 'Technology',
-      thumbnail: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400',
-      fullImage: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200',
-      description: 'Modern SaaS landing page with feature showcase, pricing, and demo request',
-      features: ['Feature Showcase', 'Pricing Calculator', 'Demo Request', 'Integration APIs'],
-      demoUrl: '#',
+      description: 'Interactive language learning platform with speaking practice, grammar lessons, and cultural immersion',
+      features: ['Speaking Practice', 'Grammar Lessons', 'Cultural Content', 'Progress Analytics'],
+      demoUrl: 'https://taneja-classes.vercel.app/',
       color: 'purple'
-    },
-    {
-      id: 8,
-      title: 'PropertyPro Real Estate',
-      category: 'Real Estate',
-      industry: 'Property',
-      thumbnail: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400',
-      fullImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200',
-      description: 'Real estate platform with property listings, virtual tours, and inquiry system',
-      features: ['Property Listings', 'Virtual Tours', 'Search Filters', 'Inquiry Form'],
-      demoUrl: '#',
-      color: 'cyan'
     }
   ];
-
-  const categories = ['All', 'Education', 'Restaurant', 'E-commerce', 'Fitness', 'Professional', 'Beauty', 'SaaS', 'Real Estate'];
-
-  const filteredDesigns = selectedCategory === 'All' 
-    ? designs 
-    : designs.filter(d => d.category === selectedCategory);
 
   const colorClasses = {
     emerald: { gradient: 'from-emerald-500/20 to-emerald-500/5', border: 'border-emerald-500/30', text: 'text-emerald-400', bg: 'bg-emerald-500/10' },
@@ -123,6 +70,44 @@ export default function DesignShowcase() {
     pink: { gradient: 'from-pink-500/20 to-pink-500/5', border: 'border-pink-500/30', text: 'text-pink-400', bg: 'bg-pink-500/10' },
     purple: { gradient: 'from-purple-500/20 to-purple-500/5', border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-500/10' },
     cyan: { gradient: 'from-cyan-500/20 to-cyan-500/5', border: 'border-cyan-500/30', text: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+  };
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!isAutoScrolling) return;
+
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        const scrollAmount = carouselRef.current.offsetWidth * 0.9;
+        carouselRef.current.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+
+        // Reset to beginning if we've scrolled to the end
+        if (carouselRef.current.scrollLeft + carouselRef.current.offsetWidth >= carouselRef.current.scrollWidth - 10) {
+          setTimeout(() => {
+            if (carouselRef.current) {
+              carouselRef.current.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+              });
+            }
+          }, 2000);
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isAutoScrolling]);
+
+  // Pause auto-scroll on hover
+  const handleMouseEnter = () => {
+    setIsAutoScrolling(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoScrolling(true);
   };
 
   return (
@@ -157,7 +142,7 @@ export default function DesignShowcase() {
               {/* Glassmorphism Info Cards */}
               <div className="flex flex-wrap justify-center gap-6 mb-12">
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4">
-                  <div className="text-3xl font-bold text-emerald-400">8+</div>
+                  <div className="text-3xl font-bold text-emerald-400">4+</div>
                   <div className="text-slate-400 text-sm">Ready Designs</div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4">
@@ -170,76 +155,70 @@ export default function DesignShowcase() {
                 </div>
               </div>
             </div>
-
-            {/* Category Filter */}
-            <div className="flex items-center justify-center gap-3 mb-12 flex-wrap">
-              <Filter className="w-5 h-5 text-slate-400" />
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
-                    selectedCategory === cat
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg shadow-emerald-500/20'
-                      : 'bg-white/5 backdrop-blur-md border border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
 
-        {/* Design Grid */}
+        {/* Auto-scrolling Carousel */}
         <div className="max-w-7xl mx-auto px-6 pb-20">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredDesigns.map((design) => {
-              const colors = colorClasses[design.color];
-              return (
-                <div
-                  key={design.id}
-                  onClick={() => setSelectedDesign(design)}
-                  className="group cursor-pointer"
-                >
-                  {/* Glassmorphism Card */}
-                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl">
-                    
-                    {/* Thumbnail */}
-                    <div className="relative h-48 overflow-hidden">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient}`}></div>
-                      <img 
-                        src={design.thumbnail} 
-                        alt={design.title}
-                        className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity group-hover:scale-110 duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-                      
-                      {/* Category Badge */}
-                      <div className={`absolute top-4 right-4 ${colors.bg} backdrop-blur-md border ${colors.border} rounded-full px-3 py-1`}>
-                        <span className={`text-xs font-semibold ${colors.text}`}>{design.category}</span>
+          <div 
+            ref={carouselRef}
+            className="relative overflow-x-auto scrollbar-hide py-4"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="flex space-x-6 pb-4" style={{ minWidth: 'max-content' }}>
+              {designs.map((design) => {
+                const colors = colorClasses[design.color];
+                return (
+                  <div
+                    key={design.id}
+                    className="flex-shrink-0 w-[85vw] sm:w-[75vw] md:w-[65vw] lg:w-[55vw] xl:w-[45vw] 2xl:w-[35vw]"
+                    onClick={() => setSelectedDesign(design)}
+                  >
+                    {/* Modern Carousel Card */}
+                    <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden cursor-pointer h-full">
+                      {/* Full-width Image with Overlay */}
+                      <div className="relative h-64 md:h-72 overflow-hidden">
+                        <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient}`}></div>
+                        <img 
+                          src={design.thumbnail} 
+                          alt={design.title}
+                          className="w-full h-full object-cover opacity-90"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-6 md:p-8">
+                        <h3 className="text-xl md:text-2xl font-bold mb-3">
+                          {design.title}
+                        </h3>
+                        <p className="text-slate-300 text-sm md:text-base mb-6 line-clamp-2">
+                          {design.description}
+                        </p>
+
+                        {/* Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          <button className="flex-1 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-bold px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 text-sm">
+                            View Details
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
+                          <a 
+                            href={design.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 bg-white/10 border border-white/20 text-white font-bold px-5 py-3 rounded-xl flex items-center justify-center gap-2 text-sm"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            Live Preview
+                          </a>
+                        </div>
                       </div>
                     </div>
-
-                    {/* Content */}
-                    <div className="p-5">
-                      <h3 className="text-lg font-bold mb-2 group-hover:text-emerald-400 transition-colors">
-                        {design.title}
-                      </h3>
-                      <p className="text-slate-400 text-sm mb-4 line-clamp-2">
-                        {design.description}
-                      </p>
-
-                      {/* View Button */}
-                      <button className="w-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/50 rounded-lg py-2 text-sm font-semibold transition-all group-hover:text-emerald-400 flex items-center justify-center gap-2">
-                        View Design
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -260,27 +239,15 @@ export default function DesignShowcase() {
                 {/* Modal Content */}
                 <div className="bg-gradient-to-br from-slate-900 to-slate-800/90 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
                   
-                  {/* Header */}
-                  <div className={`bg-gradient-to-r ${colorClasses[selectedDesign.color].gradient} border-b border-white/10 p-6 md:p-8`}>
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                      <div>
-                        <div className="flex flex-wrap items-center gap-2 mb-3">
-                          <div className={`inline-block ${colorClasses[selectedDesign.color].bg} border ${colorClasses[selectedDesign.color].border} rounded-full px-3 py-1`}>
-                            <span className={`text-xs font-semibold ${colorClasses[selectedDesign.color].text}`}>
-                              {selectedDesign.category}
-                            </span>
-                          </div>
-                          <div className="bg-white/10 border border-white/20 rounded-full px-3 py-1">
-                            <span className="text-xs font-semibold text-white">
-                              {selectedDesign.industry}
-                            </span>
-                          </div>
+                    {/* Header */}
+                    <div className={`bg-gradient-to-r ${colorClasses[selectedDesign.color].gradient} border-b border-white/10 p-6 md:p-8`}>
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">{selectedDesign.title}</h2>
+                          <p className="text-slate-200 text-base md:text-lg max-w-2xl">{selectedDesign.description}</p>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">{selectedDesign.title}</h2>
-                        <p className="text-slate-200 text-base md:text-lg max-w-2xl">{selectedDesign.description}</p>
                       </div>
                     </div>
-                  </div>
 
                   {/* Content */}
                   <div className="p-6 md:p-8">
@@ -295,53 +262,6 @@ export default function DesignShowcase() {
                       <div className="absolute bottom-4 left-4 z-20">
                         <div className="bg-black/30 backdrop-blur-sm rounded-lg px-3 py-1.5">
                           <span className="text-white text-sm font-medium">Design Preview</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Features & Info */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-8">
-                      {/* Features */}
-                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300">
-                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
-                          <div className="w-8 h-8 bg-emerald-500/20 border border-emerald-500/30 rounded-lg flex items-center justify-center">
-                            <span className="text-emerald-400 text-lg">✓</span>
-                          </div>
-                          Key Features
-                        </h3>
-                        <ul className="space-y-3">
-                          {selectedDesign.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-slate-300">
-                              <div className="w-5 h-5 bg-emerald-500/10 border border-emerald-500/20 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <span className="text-emerald-400 text-xs">✓</span>
-                              </div>
-                              <span className="text-sm md:text-base">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Design Info */}
-                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-cyan-500/30 transition-all duration-300">
-                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
-                          <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/30 rounded-lg flex items-center justify-center">
-                            <span className="text-cyan-400 text-lg">ℹ️</span>
-                          </div>
-                          Design Information
-                        </h3>
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="text-slate-400 text-sm mb-1">Category</h4>
-                            <p className="text-white font-medium">{selectedDesign.category}</p>
-                          </div>
-                          <div>
-                            <h4 className="text-slate-400 text-sm mb-1">Industry</h4>
-                            <p className="text-white font-medium">{selectedDesign.industry}</p>
-                          </div>
-                          <div>
-                            <h4 className="text-slate-400 text-sm mb-1">Delivery Time</h4>
-                            <p className="text-emerald-400 font-medium">7-14 Days</p>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -372,15 +292,20 @@ export default function DesignShowcase() {
                         href={`https://wa.me/917404511743?text=Hi%20PixelorCode!%20I'm%20interested%20in%20the%20${encodeURIComponent(selectedDesign.title)}%20design.%20Please%20send%20me%20more%20details.%0A%0ACategory:%20${encodeURIComponent(selectedDesign.category)}%0AIndustry:%20${encodeURIComponent(selectedDesign.industry)}%0AKey%20Features:%20${encodeURIComponent(selectedDesign.features.join(', '))}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-bold px-6 py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30"
+                        className="flex-1 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-bold px-6 py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-emerald-500/20"
                       >
                         Choose This Design
                         <ArrowRight className="w-5 h-5" />
                       </a>
-                      <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white font-semibold px-6 py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300">
+                      <a 
+                        href={selectedDesign.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-white/10 border border-white/20 text-white font-semibold px-6 py-4 rounded-xl flex items-center justify-center gap-2"
+                      >
                         <ExternalLink className="w-5 h-5" />
                         View Live Demo
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
