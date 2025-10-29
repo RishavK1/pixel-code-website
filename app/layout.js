@@ -28,32 +28,6 @@ export const metadata = {
     },
   },
 
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://pixelorcode.com',
-    siteName: 'PixelorCode - Professional Web Development Agency',
-    title: 'PixelorCode - Launch Your Website in Days, Not Months',
-    description: 'Professional web development agency in Karnal. Modern websites using React, Next.js, MERN stack. Starting $299. Fast delivery in 7-14 days.',
-    images: [
-      {
-        url: 'https://pixelorcode.com/logo.png',
-        width: 1024,
-        height: 796,
-        alt: 'PixelorCode - Web Development Agency Karnal',
-      }
-    ],
-  },
-
-  twitter: {
-    card: 'summary_large_image',
-    site: '@pixelorcode',
-    creator: '@pixelorcode',
-    title: 'PixelorCode - Professional Web Development',
-    description: 'Launch your website in 7-14 days. Modern tech, affordable pricing, fast delivery.',
-    images: ['https://pixelorcode.com/logo.png'],
-  },
-
   alternates: {
     canonical: 'https://pixelorcode.com',
   },
@@ -69,6 +43,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Open Graph Meta Tags - MUST BE IN HEAD */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pixelorcode.com" />
+        <meta property="og:title" content="PixelorCode - Launch Your Website in Days, Not Months" />
+        <meta property="og:description" content="Professional web development agency in Karnal. Modern websites using React, Next.js, MERN stack. Starting $299. Fast delivery in 7-14 days." />
+        <meta property="og:image" content="https://pixelorcode.com/logo.png" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="796" />
+        <meta property="og:image:alt" content="PixelorCode - Web Development Agency" />
+        <meta property="og:site_name" content="PixelorCode" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@pixelorcode" />
+        <meta name="twitter:creator" content="@pixelorcode" />
+        <meta name="twitter:title" content="PixelorCode - Professional Web Development" />
+        <meta name="twitter:description" content="Launch your website in 7-14 days. Modern tech, affordable pricing, fast delivery." />
+        <meta name="twitter:image" content="https://pixelorcode.com/logo.png" />
+
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
