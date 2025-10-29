@@ -8,10 +8,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-sitemap.js && next build",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
     "export": "next export"
   },
   "dependencies": {
